@@ -1,0 +1,57 @@
+<div class="bg-gray-800 font-sans">
+  <div class="mx-auto max-w-7xl sm:px-6 lg:px-8 h-screen flex flex-wrap">
+    <div class="w-150 flex flex-col justify-center">
+      <div class="text-white text-5xl font-semibold relative">
+        Welcome to my
+      </div>
+      <div class="bg-pink-600 h-2 w-90 animate-bounce"></div>
+      <div
+        class="text-4xl w-1/2 font-bold bg-gradient-to-r from-sky-400 to-pink-800 bg-clip-text text-transparent"
+      >
+        Portfolio!
+      </div>
+      <div class="mt-4 text-2xl text-gray-300">
+        {{ aboutMeHeader }}
+      </div>
+      <div class="mt-4 text-gray-300">{{ aboutMe }}</div>
+      <div
+        class="rounded-full text-white cursor-pointer font-semibold mt-5 pl-5 pr-5 pt-2 pb-2 w-40 bg-gradient-to-r from-sky-800 to-pink-800 bg-clip bg-transparent hover:text-gray-300"
+      >
+        <input type="button" value="My Resume" />
+        <i class="fa-solid fa-arrow-down ml-3 animate-bounce"></i>
+      </div>
+    </div>
+
+    <div class="w-150 flex flex-col justify-center items-center">
+      <div class="flex justify-center items-center">
+        <div class="">
+          <img
+            [src]="imageCoverPath"
+            class="rounded-full shadow-lg animate-pulse"
+          />
+        </div>
+        <div class="relative -mt-13 -ml-113">
+          <img [src]="imageProfilePath" class="rounded-full" />
+        </div>
+      </div>
+      <div
+        class="mt-10 text-3xl font-bold bg-gradient-to-r from-sky-400 to-pink-800 bg-clip-text text-transparent animate-pulse"
+      >
+        ATUL BAPURAO PATIL
+      </div>
+      <div
+        class="w-1/2 text-white text-3xl mt-8 flex justify-around content-end items-center"
+      >
+        <i class="fa-brands fa-linkedin cursor-pointer hover:text-gray-400"></i>
+        <i class="fa-brands fa-github cursor-pointer hover:text-gray-400"></i>
+        <i
+          class="fa-brands fa-instagram cursor-pointer hover:text-gray-400"
+        ></i>
+        <i class="fa-brands fa-twitter cursor-pointer hover:text-gray-400"></i>
+        <i
+          class="fa-brands fa-x-twitter cursor-pointer hover:text-gray-400"
+        ></i>
+      </div>
+    </div>
+  </div>
+</div>

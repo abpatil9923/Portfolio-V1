@@ -1,0 +1,46 @@
+<hr class="w-full h-1 bg-gray-500" />
+
+<section class="bg-gray-800 text-white py-12">
+  <div class="container mx-auto text-center">
+    <h2 class="text-2xl font-bold mb-4">Here are some of my projects</h2>
+    <div class="flex flex-wrap justify-center gap-6">
+      <div
+        *ngFor="let project of projects"
+        class="w-full mt-5 md:w-1/5 bg-gray-800 rounded-lg shadow-lg p-4 transition hover:scale-105"
+      >
+        <img
+          [src]="project.imageUrl"
+          alt="{{ project.title }}"
+          class="rounded-lg mb-4"
+        />
+        <h3 class="text-xl font-bold text-red-400">{{ project.title }}</h3>
+        <p class="text-sm text-gray-300">{{ project.description }}</p>
+        <p class="mt-2 font-semibold">Stack:</p>
+        <div class="flex flex-wrap justify-center gap-2">
+          <span
+            *ngFor="let tech of project.stack"
+            class="text-xs bg-gray-700 px-2 py-1 rounded-lg"
+          >
+            {{ tech }}
+          </span>
+        </div>
+        <div class="mt-4 flex justify-between">
+          <a
+            [href]="project.visitLink"
+            target="_blank"
+            class="bg-gray-700 px-4 py-2 rounded-lg hover:bg-gray-600"
+            >Visit</a
+          >
+          <a
+            *ngIf="project.githubLink"
+            [href]="project.githubLink"
+            target="_blank"
+            class="bg-gray-700 rounded-lg hover:bg-gray-600 flex items-center"
+          >
+            <img src="assets/icons/github.png" class="w-10 p-0 h-10" />
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
