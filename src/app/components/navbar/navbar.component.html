@@ -1,27 +1,21 @@
 <nav class="bg-gray-800 p-5">
   <div
-    class="mx-auto max-w-7xl px-2 sm:px-6 lg:px-8 outline-1 outline-white rounded-md"
+    class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 outline outline-1 outline-white rounded-md"
   >
     <div class="relative flex h-16 items-center justify-between">
+      <!-- Mobile Menu Button -->
       <div class="absolute inset-y-0 left-0 flex items-center sm:hidden">
-        <!-- Mobile menu button-->
         <button
           type="button"
-          class="relative inline-flex items-center justify-center rounded-md p-2 text-gray-400 hover:bg-gray-700 hover:text-white focus:ring-2 focus:ring-white focus:outline-hidden focus:ring-inset"
-          aria-controls="mobile-menu"
-          aria-expanded="false"
-          (click)="toggleMobileView()"
+          class="inline-flex items-center justify-center rounded-md p-2 text-gray-400 hover:bg-gray-700 hover:text-white focus:ring-2 focus:ring-white focus:outline-none"
+          (click)="toggleMobileMenu()"
         >
-          <span class="absolute -inset-0.5"></span>
-          <span class="sr-only">Open main menu</span>
           <svg
-            class="block size-6"
+            class="size-6"
             fill="none"
             viewBox="0 0 24 24"
             stroke-width="1.5"
             stroke="currentColor"
-            aria-hidden="true"
-            data-slot="icon"
           >
             <path
               stroke-linecap="round"
@@ -29,180 +23,135 @@
               d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5"
             />
           </svg>
-          <!--
-            Icon when menu is open.
-
-            Menu open: "block", Menu closed: "hidden"
-          -->
-          <svg
-            class="hidden size-6"
-            fill="none"
-            viewBox="0 0 24 24"
-            stroke-width="1.5"
-            stroke="currentColor"
-            aria-hidden="true"
-            data-slot="icon"
-          >
-            <path
-              stroke-linecap="round"
-              stroke-linejoin="round"
-              d="M6 18 18 6M6 6l12 12"
-            />
-          </svg>
         </button>
       </div>
+
+      <!-- Logo -->
       <div
         class="flex flex-1 items-center justify-center sm:items-stretch sm:justify-start"
       >
-        <div class="flex shrink-0 items-center font-semibold cursor-pointer">
-          <span class="text-white text-2xl bg-pink-600 pl-1 pr-1">Atul</span>
-          <span class="text-white text-2xl ml-1">Patil</span>
+        <div class="flex items-center font-semibold cursor-pointer">
+          <span class="text-white text-xl sm:text-2xl bg-pink-600 px-2 rounded"
+            >Atul</span
+          >
+          <span class="text-white text-xl sm:text-2xl ml-1">Patil</span>
         </div>
-        <div class="hidden sm:ml-25 sm:block">
-          <div class="flex space-x-4">
+      </div>
+
+      <!-- Desktop Menu -->
+      <div class="hidden sm:block">
+        <div class="flex mr-60">
+          <span *ngFor="let tab of tabs" class="px-2 py-2 cursor-pointer">
             <a
               href="#"
-              class="rounded-md px-3 bg-gray-900 py-2 text-sm font-medium text-gray-300"
-              >HOME</a
+              (click)="scrollToSection(tab.id)"
+              class="py-2 px-4 rounded-md text-sm font-medium text-gray-300 hover:bg-gray-700 hover:text-white focus:ring-1"
+              >{{ tab.label | translate }}</a
+            >
+          </span>
+        </div>
+      </div>
+
+      <!-- Language & Profile Dropdowns -->
+      <div class="flex space-x-4">
+        <!-- Language Dropdown -->
+        <div class="relative">
+          <button
+            class="flex items-center rounded-full px-3 py-1 font-semibold bg-green-400 cursor-pointer hover:text-white focus:ring-2 focus:ring-white"
+            (click)="toggleDropdown()"
+            id="user-menu-button"
+          >
+            <span class="material-symbols-outlined">language</span>
+            <span>{{ selectedLanguage | uppercase | slice : 0 : 3 }}</span>
+          </button>
+          <div
+            *ngIf="isDropdownOpen"
+            id="language-menu"
+            class="absolute right-0 mt-2 w-40 font-bold bg-green-400 shadow-lg rounded-md"
+          >
+            <a
+              href="#"
+              class="block px-4 py-2 text-white hover:bg-white hover:text-gray-800"
+              (click)="selectLanguage('English')"
+              >English</a
             >
             <a
               href="#"
-              class="rounded-md px-3 py-2 text-sm font-medium text-gray-300 hover:bg-gray-700 hover:text-white"
-              >SERVICES</a
+              class="block px-4 py-2 text-white hover:bg-white hover:text-gray-800"
+              (click)="selectLanguage('Spanish')"
+              >Spanish</a
             >
             <a
               href="#"
-              class="rounded-md px-3 py-2 text-sm font-medium text-gray-300 hover:bg-gray-700 hover:text-white"
-              >SKILLS</a
-            >
-            <a
-              href="#"
-              class="rounded-md px-3 py-2 text-sm font-medium text-gray-300 hover:bg-gray-700 hover:text-white"
-              >PROJECTS</a
-            >
-            <a
-              href="#"
-              class="rounded-md px-3 py-2 text-sm font-medium text-gray-300 hover:bg-gray-700 hover:text-white"
-              >CONTACT</a
+              class="block px-4 py-2 text-white hover:bg-white hover:text-gray-800"
+              (click)="selectLanguage('French')"
+              >French</a
             >
           </div>
         </div>
-      </div>
 
-      <div class="relative">
-        <div>
+        <!-- Profile Dropdown -->
+        <div class="relative">
           <button
-            type="button"
-            class="relative cursor-pointer rounded-full outline-2 outline-pink-600 pt-1 pb-1 pr-7 pl-3 text-gray-400 hover:text-white focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-gray-800"
-            id="user-menu-button"
-            aria-haspopup="true"
-            (click)="toggleDropdown()"
+            class="relative flex items-center rounded-full font-bold text-green-400 cursor-pointer hover:text-white focus:ring-2"
+            (click)="toggleUserMenu()"
+            id="profile-button-menu"
           >
-            <div class="flex items-center w-20 justify-between">
-              <span class="material-symbols-outlined">language</span>
-              <span>{{ selectedLanguage | uppercase }}</span>
-            </div>
-          </button>
-        </div>
-
-        <!-- Dropdown menu -->
-        <div
-          *ngIf="isDropdownOpen"
-          id="dropdown-menu"
-          class="absolute right-0 z-10 mt-2 w-48 origin-top-right rounded-md bg-pink-600 shadow-lg ring-1 ring-black/5"
-          role="menu"
-          aria-orientation="vertical"
-        >
-          <a
-            href="#"
-            class="block px-4 py-2 text-white font-semibold hover:bg-white hover:text-pink-600"
-            role="menuitem"
-            (click)="selectLanguage('English')"
-            >English</a
-          >
-          <a
-            href="#"
-            class="block px-4 py-2 text-white font-semibold hover:bg-white hover:text-pink-600"
-            role="menuitem"
-            (click)="selectLanguage('Spanish')"
-            >Spanish</a
-          >
-          <a
-            href="#"
-            class="block px-4 py-2 text-white font-semibold hover:bg-white hover:text-pink-600"
-            role="menuitem"
-            (click)="selectLanguage('French')"
-            >French</a
-          >
-        </div>
-      </div>
-      <div class="relative ml-3">
-        <div>
-          <button
-            type="button"
-            class="relative ml-3 cursor-pointer outline-2 outline-pink-600 rounded-full p-1 flex rounded-full bg-gray-800 text-gray-400 text-l hover:text-white focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-gray-800 focus:outline-hidden"
-            (click)="toggleProfile()"
-          >
-            <span class="material-symbols-outlined"> person </span>
-            <span class="relative flex -ml-2 size-3">
+            <span class="w-10 h-10"
+              ><img src="/assets/images/man.png" alt="profile"
+            /></span>
+            <span class="relative -ml-3 -mb-3 size-3">
               <span
                 class="absolute inline-flex h-full w-full animate-ping rounded-full bg-sky-400 opacity-75"
               ></span>
               <span
-                class="relative inline-flex size-3 rounded-full bg-sky-500"
+                class="relative inline-flex size-3 rounded-full bg-green-500"
               ></span>
             </span>
           </button>
-        </div>
-        <div
-          *ngIf="isProfileOpen"
-          id="profile-open"
-          class="absolute right-0 z-10 mt-5 w-60 outline-2 origin-top-right rounded-md bg-white flex flex-col justify-center items-center p-5"
-          role="menu"
-          aria-orientation="vertical"
-        >
-          <div class="w-40 h-40">
-            <img src="/assets/images/pro.jpg" alt="profile" />
-          </div>
-          <div class="text-xl font-semibold text-gray-800">Atul Patil</div>
-          <div class="pl-2 pr-2 mt-2 bg-green-200 font-semibold text-gray-600">
-            ACTIVE - Freelancer
-          </div>
-          <div class="pl-2 pr-2 mt-2 font-semibold text-gray-800">
-            Full-Stack Developer
+          <div
+            *ngIf="isProfileOpen"
+            id="profile-menu"
+            class="absolute right-0 mt-5 w-60 bg-white rounded-md shadow-lg flex flex-col items-center p-5"
+          >
+            <img
+              src="/assets/images/pro.jpg"
+              alt="profile"
+              class="w-20 h-20 rounded-full"
+            />
+            <div class="text-xl font-semibold text-gray-800 mt-2">
+              Atul Patil
+            </div>
+            <div
+              class="mt-2 bg-green-200 px-2 py-1 text-gray-600 font-semibold"
+            >
+              {{ "nav.active.freelancer" | translate }}
+            </div>
+            <div class="mt-2 font-semibold text-gray-800">
+              {{ "nav.full.stack.developer" | translate }}
+            </div>
           </div>
         </div>
       </div>
     </div>
   </div>
 
-  <div id="mobile-menu" *ngIf="isMobileViewOpen">
-    <div class="space-y-1 px-2 pt-2 pb-3">
+  <!-- Mobile Menu -->
+  <div
+    id="mobile-menu"
+    class="sm:hidden px-2 pt-2 pb-3 flex flex-col outline-1 outline-gray-500 mt-2"
+    *ngIf="isMobileViewOpen"
+  >
+    <span
+      *ngFor="let tab of tabs"
+      (click)="scrollToSection(tab.id)"
+      class="px-4 py-2 cursor-pointer hover:bg-gray-700 hover:text-white focus:ring-1"
+    >
       <a
         href="#"
-        class="block rounded-md px-3 py-2 text-base font-medium text-gray-300 hover:bg-gray-700 hover:text-white"
-        >HOME</a
+        class="px-4 py-2 rounded-md text-sm font-medium text-gray-300 focus:ring-1"
+        >{{ tab.label }}</a
       >
-      <a
-        href="#"
-        class="block rounded-md px-3 py-2 text-base font-medium text-gray-300 hover:bg-gray-700 hover:text-white"
-        >Services</a
-      >
-      <a
-        href="#"
-        class="block rounded-md px-3 py-2 text-base font-medium text-gray-300 hover:bg-gray-700 hover:text-white"
-        >Technologies</a
-      >
-      <a
-        href="#"
-        class="block rounded-md px-3 py-2 text-base font-medium text-gray-300 hover:bg-gray-700 hover:text-white"
-        >Projects</a
-      >
-      <a
-        href="#"
-        class="block rounded-md px-3 py-2 text-base font-medium text-gray-300 hover:bg-gray-700 hover:text-white"
-        >Contact</a
-      >
-    </div>
+    </span>
   </div>
 </nav>

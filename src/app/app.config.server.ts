@@ -1,14 +1,7 @@
-import { mergeApplicationConfig, ApplicationConfig } from '@angular/core';
+import { ApplicationConfig } from '@angular/core';
 import { provideServerRendering } from '@angular/platform-server';
-import { provideServerRoutesConfig } from '@angular/ssr';
-import { appConfig } from './app.config';
-import { serverRoutes } from './app.routes.server';
+import { provideTranslateService } from '@ngx-translate/core';
 
-const serverConfig: ApplicationConfig = {
-  providers: [
-    provideServerRendering(),
-    provideServerRoutesConfig(serverRoutes)
-  ]
+export const appConfig: ApplicationConfig = {
+  providers: [provideServerRendering(), provideTranslateService()],
 };
-
-export const config = mergeApplicationConfig(appConfig, serverConfig);

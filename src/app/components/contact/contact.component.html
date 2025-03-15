@@ -1,45 +1,105 @@
-<hr class="w-full h-1 bg-gray-500" />
-<div class="bg-gray-800 text-white flex flex-col justify-center items-center">
+<!-- Main Container -->
+<div
+  class="bg-gray-800 text-white flex flex-col justify-center items-center px-4 md:px-10"
+>
   <div
-    class="max-w-4xl mt-20 mb-20 w-full flex flex-col md:flex-row justify-between items-start"
+    class="max-w-4xl mt-10 md:mt-20 mb-10 md:mb-20 w-full flex flex-col md:flex-row justify-between items-center"
   >
     <!-- Left Section -->
-    <div class="md:w-1/2 space-y-6">
+    <div class="md:w-1/2 space-y-6 mr-2 text-center md:text-left">
       <h2
-        class="text-2xl w-2/3 font-bold bg-gradient-to-r from-sky-300 to-pink-800 bg-clip-text text-transparent"
+        class="text-xl md:text-2xl font-bold bg-gradient-to-r from-sky-300 to-pink-800 bg-clip-text text-transparent"
       >
-        DO YOU HAVE A PROJECT TO DISCUSS?
+        {{ "PROJECT_TITLE" | translate }}
       </h2>
-      <p class="text-xl font-semibold">GET IN TOUCH 💬</p>
+      <p class="text-lg md:text-xl font-semibold">
+        {{ "GET_IN_TOUCH" | translate }}
+      </p>
 
       <div>
-        <h3 class="text-gray-300 uppercase">Contact</h3>
-        <p class="text-blue-400">web.smm.ztygmail.com</p>
+        <h3 class="text-gray-300 uppercase text-sm">
+          {{ "CONTACT" | translate }}
+        </h3>
+        <p
+          class="text-blue-400 text-sm md:text-base underline cursor-pointer hover:text-blue-600"
+        >
+          <a
+            href="mailto:atulbpatil004@gmail.com?subject=Inquiry&body=Hello, I would like to know more about..."
+            target="_blank"
+            >{{ email }}</a
+          >
+        </p>
       </div>
 
       <div>
-        <h3 class="text-gray-300 uppercase">Social Media</h3>
-        <div class="flex mt-3 space-x-4 text-lg">
-          <span class="hover:text-gray-400"
-            ><i class="fa-brands fa-linkedin cursor-pointer text-blue-600"></i>
-            Linkedin</span
-          ><span class="hover:text-gray-400"
-            ><i class="fa-brands fa-instagram cursor-pointer text-pink-600"></i>
-            Instagram</span
-          ><span class="hover:text-gray-400"
-            ><i class="fa-brands fa-whatsapp cursor-pointer text-green-600"></i>
-            Whatsapp</span
+        <h3 class="text-gray-300 uppercase text-sm">
+          {{ "SOCIAL_MEDIA" | translate }}
+        </h3>
+        <div
+          class="flex justify-center md:justify-start mt-3 space-x-4 text-lg"
+        >
+          <span
+            class="hover:text-gray-400 flex items-center space-x-1 cursor-pointer"
           >
+            <i class="fa-brands fa-linkedin text-blue-600"></i>
+            <span class="text-sm md:text-base">
+              <a
+                href="https://www.linkedin.com/in/atul-patil-790826174/"
+                target="_blank"
+                >{{ "LINKEDIN" | translate }}</a
+              >
+            </span>
+          </span>
+          <span
+            class="hover:text-gray-400 flex items-center space-x-1 cursor-pointer"
+          >
+            <i class="fa-brands fa-instagram text-rose-700"></i>
+            <span class="text-sm md:text-base">
+              <a
+                href="https://www.instagram.com/patil_atul__/"
+                target="_blank"
+                >{{ "INSTAGRAM" | translate }}</a
+              >
+            </span>
+          </span>
+          <span
+            class="hover:text-gray-400 flex items-center space-x-1 cursor-pointer"
+          >
+            <i class="fa-brands fa-whatsapp text-green-600"></i>
+            <span class="text-sm md:text-base">
+              <a href="https://wa.me/9881580895?text=Hello" target="_blank">{{
+                "WHATSAPP" | translate
+              }}</a>
+            </span>
+          </span>
         </div>
       </div>
     </div>
 
     <!-- Right Section - Contact Form -->
-    <div class="md:w-1/2 bg-gray-800 p-6 rounded-lg shadow-2xl w-full">
-      <h3 class="text-xl mb-4">CONTACT FORM</h3>
+    <div
+      class="w-full md:w-1/2 bg-gray-800 p-6 rounded-lg shadow-2xl mt-10 md:mt-0"
+    >
+      <div
+        id="meesage-alert"
+        class="bg-green-200 mb-5 text-gray-800 px-4 py-3"
+        role="alert"
+        *ngIf="isMessageSent"
+      >
+        <p class="font-bold">{{ "MESSAGE_ALERT_HEADER" | translate }}</p>
+        <p class="text-sm">
+          {{ "MESSAGE_ALERT_BODY" | translate }}
+        </p>
+      </div>
+
+      <h3 class="text-lg md:text-xl mb-4 text-center md:text-left">
+        {{ "CONTACT_FORM" | translate }}
+      </h3>
       <form (submit)="onSubmit()" #contactForm="ngForm">
         <div class="mb-4">
-          <label class="block text-sm text-gray-300">Name</label>
+          <label class="block text-sm text-gray-300">{{
+            "NAME" | translate
+          }}</label>
           <input
             type="text"
             [(ngModel)]="formData.name"
@@ -50,7 +110,9 @@
         </div>
 
         <div class="mb-4">
-          <label class="block text-sm text-gray-300">Email</label>
+          <label class="block text-sm text-gray-300">{{
+            "EMAIL" | translate
+          }}</label>
           <input
             type="email"
             [(ngModel)]="formData.email"
@@ -61,7 +123,9 @@
         </div>
 
         <div class="mb-4">
-          <label class="block text-sm text-gray-300">Message</label>
+          <label class="block text-sm text-gray-300">{{
+            "MESSAGE" | translate
+          }}</label>
           <textarea
             [(ngModel)]="formData.message"
             name="message"
@@ -75,7 +139,7 @@
           type="submit"
           class="w-full bg-pink-500 hover:bg-pink-600 text-white py-2 rounded-lg font-semibold"
         >
-          Send Message
+          {{ "SEND_MESSAGE" | translate }}
         </button>
       </form>
     </div>

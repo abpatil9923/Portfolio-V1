@@ -1,9 +1,10 @@
 import { CommonModule } from '@angular/common';
 import { Component } from '@angular/core';
+import { TranslateModule, TranslateService } from '@ngx-translate/core';
 
 @Component({
   selector: 'app-skills',
-  imports: [CommonModule],
+  imports: [CommonModule, TranslateModule],
   templateUrl: './skills.component.html',
   styleUrl: './skills.component.scss',
 })
@@ -31,4 +32,9 @@ export class SkillsComponent {
     { name: 'Jenkins', icon: '/assets/icons/jenkins.png' },
     { name: 'Kubernetes', icon: '/assets/icons/kubernetes.png' },
   ];
+
+  constructor(private translate: TranslateService) {
+    this.translate.setDefaultLang('en');
+    this.translate.use('en');
+  }
 }

@@ -1,0 +1,62 @@
+{
+  "nav.active.freelancer": "ACTIVE - Freelancer",
+  "nav.full.stack.developer": "Full-Stack Developer",
+
+  "about.wel.to.my": "Welcome to my",
+  "about.portfolio": "Portfolio!",
+  "about.experiece": "Full-Stack Developer | 4+ Years Experience",
+  "about.experiece.desc": "I am a passionate Full-Stack Developer with 4+ years of experience in designing, developing, and deploying scalable web applications. I specialize in Angular for dynamic front-end development, utilizing Angular Material, Tailwind, and Bootstrap to create intuitive and responsive user interfaces.On the backend, I have expertise in Java, Spring Boot, and Spring Boot Microservices, enabling me to build robust, high-performance APIs and distributed systems. My experience in SQL ensures efficient database management and query optimization.I am well-versed in DevOps and CI/CD pipelines, leveraging Git, Jira, Docker, Jenkins, and Kubernetes to streamline development, deployment, and monitoring processes. I thrive in agile environments and am always eager to learn and implement new technologies to enhance software efficiency and user experience.",
+  "about.my.resume": "My Resume",
+
+  "navtabs": [
+    { "id": "home", "label": "HOME" },
+    { "id": "services", "label": "SERVICES" },
+    { "id": "skills", "label": "SKILLS" },
+    { "id": "projects", "label": "PROJECTS" },
+    { "id": "contact", "label": "CONTACT " }
+  ],
+
+  "my_services": "MY SERVICES",
+  "services": [
+    {
+      "icon": "devices",
+      "title": "Website Development & UI/UX",
+      "description": "Proficient in developing dynamic and responsive user interfaces using modern JavaScript frameworks and libraries."
+    },
+    {
+      "icon": "api",
+      "title": "Backend Development",
+      "description": "Experienced in designing and implementing robust backend systems, REST APIs, and microservices architectures."
+    },
+    {
+      "icon": "database",
+      "title": "Database Management",
+      "description": "Skilled in relational and NoSQL databases, ensuring efficient data storage, optimization, and high availability."
+    },
+    {
+      "icon": "deployed_code",
+      "title": "DevOps Services",
+      "description": "Hands-on experience in cloud deployment including CI/CD pipelines (Jenkins, GitHub Actions, GitLab CI/CD), containerization (Docker, Kubernetes)."
+    }
+  ],
+
+  "skills": "SKILLS",
+  "skills.use": "The skills, tools and technologies I use:",
+  "project.title": "Here are some of my projects :",
+
+  "PROJECT_TITLE": "DO YOU HAVE A PROJECT TO DISCUSS?",
+  "GET_IN_TOUCH": "GET IN TOUCH 💬",
+  "CONTACT": "Contact",
+  "EMAIL": "Email",
+  "SOCIAL_MEDIA": "Social Media",
+  "LINKEDIN": "LinkedIn",
+  "INSTAGRAM": "Instagram",
+  "WHATSAPP": "WhatsApp",
+  "CONTACT_FORM": "CONTACT FORM",
+  "NAME": "Name",
+  "MESSAGE": "Message",
+  "SEND_MESSAGE": "Send Message",
+
+  "MESSAGE_ALERT_HEADER": "Your message has been received",
+  "MESSAGE_ALERT_BODY": "I'll be in touch shortly. Thank you for reaching out!"
+}

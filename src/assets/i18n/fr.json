@@ -1,0 +1,62 @@
+{
+  "nav.active.freelancer": "ACTIF - Freelance",
+  "nav.full.stack.developer": "Développeur Full-Stack",
+
+  "about.wel.to.my": "Bienvenue dans mon",
+  "about.portfolio": "Portefeuille!",
+  "about.experiece": "Développeur Full Stack | Plus de 4 ans d'expérience",
+  "about.experiece.desc": "Je suis un développeur Full-Stack passionné avec plus de 4 ans d'expérience dans la conception, le développement et le déploiement d'applications web évolutives. Je suis spécialisé dans Angular pour le développement front-end dynamique, utilisant Angular Material, Tailwind et Bootstrap pour créer des interfaces utilisateur intuitives et réactives. Côté back-end, mon expertise en Java, Spring Boot et Spring Boot Microservices me permet de créer des API et des systèmes distribués robustes et performants. Mon expérience en SQL garantit une gestion efficace des bases de données et l'optimisation des requêtes. Je maîtrise parfaitement DevOps et les pipelines CI/CD, exploitant Git, Jira, Docker, Jenkins et Kubernetes pour optimiser les processus de développement, de déploiement et de surveillance. Je m'épanouis dans les environnements agiles et suis toujours avide d'apprendre et de mettre en œuvre de nouvelles technologies pour améliorer l'efficacité des logiciels et l'expérience utilisateur.",
+  "about.my.resume": "Mon CV",
+
+  "navtabs": [
+    { "id": "home", "label": "ACCUEIL" },
+    { "id": "services", "label": "SERVICES" },
+    { "id": "skills", "label": "COMPÉTENCES" },
+    { "id": "projects", "label": "PROJETS" },
+    { "id": "contact", "label": "CONTACT " }
+  ],
+
+  "my_services": "MES SERVICES",
+  "services": [
+    {
+      "icon": "devices",
+      "title": "Développement de sites Web & UI/UX",
+      "description": "Compétent dans le développement d'interfaces utilisateur dynamiques et réactives en utilisant des frameworks et bibliothèques JavaScript modernes."
+    },
+    {
+      "icon": "api",
+      "title": "Développement Backend",
+      "description": "Expérimenté dans la conception et l'implémentation de systèmes backend robustes, d'API REST et d'architectures de microservices."
+    },
+    {
+      "icon": "database",
+      "title": "Gestion de Bases de Données",
+      "description": "Maîtrise des bases de données relationnelles et NoSQL, assurant un stockage efficace des données, une optimisation et une haute disponibilité."
+    },
+    {
+      "icon": "deployed_code",
+      "title": "Services DevOps",
+      "description": "Expérience pratique dans le déploiement cloud, y compris les pipelines CI/CD (Jenkins, GitHub Actions, GitLab CI/CD), la conteneurisation (Docker, Kubernetes)."
+    }
+  ],
+
+  "skills": "COMPÉTENCES",
+  "skills.use": "Les compétences, outils et technologies que j'utilise :",
+  "project.title": "Voici quelques-uns de mes projets",
+
+  "PROJECT_TITLE": "AVEZ-VOUS UN PROJET À DISCUTER?",
+  "GET_IN_TOUCH": "PRENEZ CONTACT 💬",
+  "CONTACT": "Contact",
+  "EMAIL": "E-mail",
+  "SOCIAL_MEDIA": "Médias sociaux",
+  "LINKEDIN": "LinkedIn",
+  "INSTAGRAM": "Instagram",
+  "WHATSAPP": "WhatsApp",
+  "CONTACT_FORM": "FORMULAIRE DE CONTACT",
+  "NAME": "Nom",
+  "MESSAGE": "Message",
+  "SEND_MESSAGE": "Envoyer un Message",
+
+  "MESSAGE_ALERT_HEADER": "Votre message a été reçu",
+  "MESSAGE_ALERT_BODY": "Je vous contacterai bientôt. Merci de m'avoir contacté !"
+}

@@ -1,37 +1,28 @@
 import { CommonModule } from '@angular/common';
 import { Component } from '@angular/core';
+import { TranslateModule, TranslateService } from '@ngx-translate/core';
 
 @Component({
   selector: 'app-myservices',
-  imports: [CommonModule],
+  imports: [CommonModule, TranslateModule],
   templateUrl: './myservices.component.html',
   styleUrl: './myservices.component.scss',
 })
 export class MyservicesComponent {
-  services = [
-    {
-      title: 'Website Development & UI/UX',
-      description:
-        'Proficient in developing dynamic and responsive user interfaces using modern JavaScript frameworks and libraries.',
-      icon: 'devices',
-    },
-    {
-      title: 'Backend Development',
-      description:
-        'Experienced in designing and implementing robust backend systems, REST APIs, and microservices architectures.',
-      icon: 'api',
-    },
-    {
-      title: 'Database Management',
-      description:
-        'Skilled in relational and NoSQL databases, ensuring efficient data storage, optimization, and high availability.',
-      icon: 'database',
-    },
-    {
-      title: 'DevOps Services',
-      description:
-        'Hands-on experience in cloud deployment including CI/CD pipelines (Jenkins, GitHub Actions, GitLab CI/CD), containerization (Docker, Kubernetes).',
-      icon: 'deployed_code',
-    },
-  ];
+  services: any[] = [];
+
+  constructor(private translate: TranslateService) {
+    this.translate.setDefaultLang('en');
+    this.translate.use('en');
+  }
+
+  ngOnInit() {
+    this.translate.onLangChange.subscribe(() => this.loadServices());
+  }
+
+  loadServices() {
+    this.translate.get('services').subscribe((translatedServices) => {
+      this.services = translatedServices;
+    });
+  }
 }
